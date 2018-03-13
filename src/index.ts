@@ -1,6 +1,12 @@
 import * as fileHelpers from './fileHelpers';
 import * as faceHelpers from './FaceHelpers';
 
+
+faceHelpers.detectFaceWithAttributes('./input.jpg')
+    .then(results => {
+        console.log(results);
+    });
+
 const personGroupId = 'myfriends';
 
 // Step 1: create personGroup here

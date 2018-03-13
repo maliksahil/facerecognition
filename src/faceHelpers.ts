@@ -168,6 +168,33 @@ export function identifyPerson(
     return promise;
 }
 
+export function detectFaceWithAttributes(fileName: string): Promise<string> {
+    const promise = new Promise<string>((resolve, reject) => {
+        const requestOptions = getRequestOptions();
+        let attributes =
+            "age,gender,headPose,smile," + 
+            "facialHair,glasses,emotion," + 
+            "hair,makeup,occlusion,accessories," + 
+            "blur,exposure,noise";
+        requestOptions.body = fileHelpers.readImage(__dirname + "/" + fileName);
+        const params = {
+            "returnFaceId": "true",
+            "returnFaceLandmarks": "true",
+            "returnFaceAttributes": attributes
+        };
+
+        const uri = config.face.endPoint + "/detect?" + querystring.stringify(params);
+        request.post(
+            uri,
+            requestOptions,
+            (err, response, body) => {
+                resolve(body);
+            }
+        );
+    });
+    return promise;
+}
+
 function getRequestOptions(): request.CoreOptions {
     return {
         headers: {
