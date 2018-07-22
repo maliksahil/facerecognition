@@ -1,3 +1,3 @@
-## Sample code for my upcoming code-magazine article ##
+## Sample code for my code-magazine article ##
 
-If you see this, please poke me to update this readme with a better description and link to the article itself. Thanks! (or just do a pull request)
+[Identify Faces with Microsoft Cognitive Services](https://www.codemag.com/Article/1805031/Identify-Faces-with-Microsoft-Cognitive-Services)
